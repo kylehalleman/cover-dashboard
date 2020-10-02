@@ -1,4 +1,4 @@
-import React, { useState, FormEvent, useMemo } from "react";
+import React, { FormEvent, useMemo, useReducer } from "react";
 
 import "./App.css";
 
@@ -16,18 +16,49 @@ interface FormElements extends HTMLFormControlsCollection {
 	"end-week": HTMLInputElement;
 }
 
+const initialState = {
+	leagueId: "",
+	authToken: "",
+	startWeek: 0,
+	endWeek: 0,
+};
+
+type State = typeof initialState;
+type Action = {
+	type: "update";
+	payload: State;
+};
+
+function init(initialState: State) {
+	return {
+		leagueId: localStorage.getItem("leagueId") || "",
+		authToken: localStorage.getItem("authToken") || "",
+		startWeek: parseInt(localStorage.getItem("startWeek") || "0"),
+		endWeek: parseInt(localStorage.getItem("endWeek") || "0"),
+	};
+}
+
+function reducer(state: State, { type, payload }: Action) {
+	switch (type) {
+		case "update":
+			const nextState = {
+				...state,
+				...payload,
+			};
+			Object.entries(nextState).forEach(([key, value]) => {
+				localStorage.setItem(key, String(value));
+			});
+			return nextState;
+		default:
+			return state;
+	}
+}
+
 export default function App() {
-	const [leagueId, setLeagueId] = useState(
-		localStorage.getItem("leagueId") || ""
-	);
-	const [authToken, setAuthToken] = useState(
-		localStorage.getItem("authToken") || ""
-	);
-	const [startWeek, setStartWeek] = useState(
-		parseInt(localStorage.getItem("startWeek") || "0")
-	);
-	const [endWeek, setEndWeek] = useState(
-		parseInt(localStorage.getItem("endWeek") || "0")
+	const [{ leagueId, authToken, startWeek, endWeek }, dispatch] = useReducer(
+		reducer,
+		initialState,
+		init
 	);
 
 	const teams = useTeams(leagueId, authToken, startWeek, endWeek);
@@ -41,22 +72,16 @@ export default function App() {
 	function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 		const elements = e.currentTarget.elements as FormElements;
-		const authToken = elements["access-token"];
-		const leagueId = elements["league-id"];
-		const startWeek = elements["start-week"];
-		const endWeek = elements["end-week"];
 
-		localStorage.setItem("startWeek", startWeek.value);
-		setStartWeek(parseInt(startWeek.value));
-
-		localStorage.setItem("endWeek", endWeek.value);
-		setEndWeek(parseInt(endWeek.value));
-
-		localStorage.setItem("leagueId", leagueId.value);
-		setLeagueId(leagueId.value);
-
-		localStorage.setItem("authToken", authToken.value);
-		setAuthToken(authToken.value);
+		dispatch({
+			type: "update",
+			payload: {
+				leagueId: elements["league-id"].value,
+				authToken: elements["access-token"].value,
+				startWeek: parseInt(elements["start-week"].value),
+				endWeek: parseInt(elements["end-week"].value),
+			},
+		});
 	}
 
 	return (

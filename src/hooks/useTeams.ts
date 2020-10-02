@@ -27,12 +27,6 @@ type RoundFromServer = {
 	Title: string;
 };
 
-type GameFromServer = {
-	TeamId: number;
-	NickName: string;
-	Points: number;
-};
-
 type TeamsObject = {
 	[key: string]: ReturnType<typeof getTeamObject>;
 };

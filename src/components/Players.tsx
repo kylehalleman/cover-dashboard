@@ -79,7 +79,7 @@ export default function Players({ teams }: PlayersProps) {
 	const { authToken, leagueId, startWeek, endWeek } = useContext(APIContext);
 
 	function getUserInfo(id: UserSubset["id"]) {
-		setCurrentUser(users.find((user) => user.id === id) || EMPTY_USER);
+		setCurrentUser(users?.find((user) => user.id === id) || EMPTY_USER);
 		if (leagueId && authToken) {
 			fetcher<UserRes>(
 				`https://api.cover5.com/v2/contests/${leagueId}/entries/${id}/withPicks`,
@@ -162,7 +162,7 @@ export default function Players({ teams }: PlayersProps) {
 						</tr>
 					</thead>
 					<tbody>
-						{users.map((user, i) => {
+						{users?.map((user, i) => {
 							return (
 								<tr key={user.id}>
 									<td>
@@ -203,7 +203,7 @@ export default function Players({ teams }: PlayersProps) {
           ))}
         </ol> */}
 				<h3>Stuff</h3>
-				{!!users.length && (
+				{!!users?.length && (
 					<Charty
 						type="line"
 						title={"Users"}
