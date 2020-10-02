@@ -1,36 +1,36 @@
 label {
-  display: block;
+	display: block;
 }
 
 code {
-  font-size: 80%;
+	font-size: 80%;
 }
 
 .desc {
-  display: block;
-  font-size: 0.75em;
+	display: block;
+	font-size: 0.75em;
 }
 
 form {
-  max-width: 30em;
+	max-width: 30em;
 }
 input {
-  width: 100%;
-  font-size: 1em;
+	width: 100%;
+	font-size: 1em;
 }
 #access-token {
 }
 
 #league-id {
-  max-width: 16em;
+	max-width: 16em;
 }
 
 .ranges {
-  display: flex;
+	display: flex;
 
-  div {
-    flex: 1 1 auto;
-    width: calc(50% - 2em);
-    padding: 0 1em;
-  }
+	div {
+		flex: 1 1 auto;
+		width: calc(50% - 2em);
+		padding: 0 1em;
+	}
 }
