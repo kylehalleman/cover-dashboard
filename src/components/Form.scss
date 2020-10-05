@@ -19,10 +19,16 @@ input {
 	font-size: 1em;
 }
 #access-token {
+	width: 100%;
+	min-height: 12em;
 }
 
 #league-id {
 	max-width: 16em;
+}
+
+.input {
+	margin-bottom: 1em;
 }
 
 .ranges {

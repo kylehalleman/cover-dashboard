@@ -44,9 +44,9 @@ export default function Form({
 					</code>
 					, and copy the output.
 				</span>
-				<input
+				<textarea
 					id="access-token"
-					type="text"
+					className="input"
 					aria-describedby="access-token-desc"
 					defaultValue={defaultAuthToken}
 					placeholder="SDWwMDQdsT3lAOYi8GxWi3rilFLBEQEDPqCCBoqgWy5QiaXo_Vi4sbzbeU-Q6Srcxnved0f-yVa0oHWpvTZcQSuzT5uju8x1Vc7KZ3D7hBU6npAoYZ8N3jja9TpClrTzbED2PzmBIOc6ekuDAWHsfyf9d27DYy3p26YCE-Xoxke0X-Gpy12CBvNJguW4lnNyKdUhP2_DDCqVoW5GCkyR2ebSod3WUucr_r2Ci4Gzm3TE3zjaqX2yIdQqsJyMiiOfpqSJVd4dMEx_ZKmnqklec0qd8W_BreeVND_cpliDDAP0Ib0I1SrhAHR-8_8nyWK52XYtpn6ht4el-6ammHTKWkdVnFkqR4Hs-kpZyz229R_NKPcj3Uc5TOIqWDGAG1zU"
@@ -61,6 +61,7 @@ export default function Form({
 				<input
 					id="league-id"
 					type="text"
+					className="input"
 					aria-describedby="league-id-desc"
 					defaultValue={defaultLeagueId}
 					placeholder="82871"
@@ -71,6 +72,7 @@ export default function Form({
 					<label htmlFor="start-week">Start Week</label>
 					<input
 						id="start-week"
+						className="input"
 						type="range"
 						value={startWeek}
 						min={1}
@@ -84,6 +86,7 @@ export default function Form({
 					<label htmlFor="end-week">End Week</label>
 					<input
 						id="end-week"
+						className="input"
 						type="range"
 						value={endWeek}
 						min={minWeek}
