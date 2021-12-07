@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/cover-dashboard/static/css/main.922e31fe.chunk.css",
+    "main.js": "/cover-dashboard/static/js/main.b549bf14.chunk.js",
+    "main.js.map": "/cover-dashboard/static/js/main.b549bf14.chunk.js.map",
+    "runtime-main.js": "/cover-dashboard/static/js/runtime-main.a2572e98.js",
+    "runtime-main.js.map": "/cover-dashboard/static/js/runtime-main.a2572e98.js.map",
+    "static/js/2.c317edb0.chunk.js": "/cover-dashboard/static/js/2.c317edb0.chunk.js",
+    "static/js/2.c317edb0.chunk.js.map": "/cover-dashboard/static/js/2.c317edb0.chunk.js.map",
+    "index.html": "/cover-dashboard/index.html",
+    "precache-manifest.b70f92837bcd3f41bbd92876c3c00364.js": "/cover-dashboard/precache-manifest.b70f92837bcd3f41bbd92876c3c00364.js",
+    "service-worker.js": "/cover-dashboard/service-worker.js",
+    "static/css/main.922e31fe.chunk.css.map": "/cover-dashboard/static/css/main.922e31fe.chunk.css.map",
+    "static/js/2.c317edb0.chunk.js.LICENSE.txt": "/cover-dashboard/static/js/2.c317edb0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a2572e98.js",
+    "static/js/2.c317edb0.chunk.js",
+    "static/css/main.922e31fe.chunk.css",
+    "static/js/main.b549bf14.chunk.js"
+  ]
+}
